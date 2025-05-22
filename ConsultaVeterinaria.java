@@ -3,7 +3,8 @@ public class ConsultaVeterinaria extends Servico {
         super("Consulta Veterinária", precoBase);
     }
 
+    @Override
     public double calcularPreco(Animal animal) {
-        return precoBase; // Preço fixo
+        return precoBase + 50; // Preço fixo para consulta veterinária
     }
 }

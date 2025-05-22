@@ -3,7 +3,11 @@ public class Tosa extends Servico {
         super("Tosa", precoBase);
     }
 
+    @Override
     public double calcularPreco(Animal animal) {
-        return precoBase + 5; // Exemplo simples
+        if (animal instanceof Cachorro) {
+            return precoBase + 10; // Preço extra para tosar cachorro
+        }
+        return precoBase;
     }
 }
