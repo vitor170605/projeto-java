@@ -1,24 +1,28 @@
-class Cachorro extends Animal {
-    private String porte; // Ex: Pequeno, Médio, Grande
+public class Cachorro extends Animal {
+    private String porte;
 
     public Cachorro(String nome, String racaTipo, int idade, String proprietario, String porte) {
         super(nome, racaTipo, idade, proprietario);
         this.porte = porte;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + ", Porte: " + porte;
+    public String getPorte() {
+        return porte;
     }
 
-    @Override
-    public double calcularPreco() {
-        double precoBase = 50.0;
-        if (porte.equals("Grande")) {
-            precoBase += 20.0;
-        } else if (porte.equals("Pequeno")) {
-            precoBase -= 10.0;
-        }
-        return precoBase;
+    public String toString() {
+        return "Cachorro - Nome: " + nome + ", Raça: " + racaTipo + ", Idade: " + idade + ", Porte: " + porte
+                + ", Dono: " + proprietario;
+    }
+
+    public boolean equals(Object o) {
+        if (!(o instanceof Cachorro))
+            return false;
+        Cachorro c = (Cachorro) o;
+        return nome.equals(c.nome) && racaTipo.equals(c.racaTipo);
+    }
+
+    public int hashCode() {
+        return nome.hashCode() + racaTipo.hashCode();
     }
 }
